@@ -1,0 +1,24 @@
+{
+  "name": "Airflow Codespace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "containerEnv": {
+    "AIRFLOW_HOME": "${containerWorkspaceFolder}/.airflow",
+    "AIRFLOW__CORE__LOAD_EXAMPLES": "False",
+    "AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX": "True",
+    "AIRFLOW__WEBSERVER__PROXY_FIX_X_FOR": "1",
+    "AIRFLOW__WEBSERVER__PROXY_FIX_X_PROTO": "1",
+    "AIRFLOW__WEBSERVER__PROXY_FIX_X_HOST": "1",
+    "AIRFLOW__WEBSERVER__PROXY_FIX_X_PORT": "1",
+    "PYTHONPATH": "${containerWorkspaceFolder}"
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && bash scripts/airflow_init.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance", "qwtel.sqlite-viewer"]
+    }
+  }
+}

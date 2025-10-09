@@ -6,7 +6,7 @@ from airflow.operators.python import PythonOperator, ShortCircuitOperator
 
 from pipeline.runner import process_all_to_master
 
-DATA_DIR = Path('../data/inbound')
+DATA_DIR = Path('../Data/inbound')
 PROCESSED_DIR = ('../Data/processed')
 PATTERN = ".csv.gz"
 OUT_DIR = Path('../data/output')
